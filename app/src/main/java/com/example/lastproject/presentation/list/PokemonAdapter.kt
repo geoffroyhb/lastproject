@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lastproject.R
 
-class PokemonAdapter(private var dataSet: List<String>) :
+class PokemonAdapter(private var dataSet: List<Pokemon>) :
         RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
     /**
@@ -23,7 +23,7 @@ class PokemonAdapter(private var dataSet: List<String>) :
         }
     }
 
-    fun updateList(list: List<String>){
+    fun updateList(list: List<Pokemon>){
         dataSet =list
         notifyDataSetChanged()
     }
@@ -31,8 +31,7 @@ class PokemonAdapter(private var dataSet: List<String>) :
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
-        val view = LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.pokemon_item, viewGroup, false)
+        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.pokemon_item, viewGroup, false)
 
         return ViewHolder(view)
     }
@@ -42,7 +41,8 @@ class PokemonAdapter(private var dataSet: List<String>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.textView.text = dataSet[position]
+        val pokemon = dataSet[position]
+        viewHolder.textView.text = pokemon.name
     }
 
     // Return the size of your dataset (invoked by the layout manager)

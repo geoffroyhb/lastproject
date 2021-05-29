@@ -38,11 +38,11 @@ class PokemonListFragment : Fragment() {
 
             adapter = this@PokemonListFragment.adapter
         }
-        val pokeList = arrayListOf<String>().apply {
-            add("Pikachu")
-            add("Salameche")
-            add("Carapuce")
-            add("Herbizarre")
+        val pokeList = arrayListOf<Pokemon>().apply {
+            add(Pokemon("Pikachu"))
+            add(Pokemon("Salameche"))
+            add(Pokemon("Carapuce"))
+            add(Pokemon("Herbizarre"))
         }
 
         adapter.updateList(pokeList)
