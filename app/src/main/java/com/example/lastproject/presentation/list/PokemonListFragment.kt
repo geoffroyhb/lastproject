@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -80,8 +81,10 @@ class PokemonListFragment : Fragment() {
 
 
     }
-    private fun onClickPokemon(pokemon: Pokemon) {
-        findNavController().navigate(R.id.navigateToPokemonDetailsFragment)
+    private fun onClickPokemon(id: Int) {
+        findNavController().navigate(R.id.navigateToPokemonDetailsFragment, bundleOf(
+            "PokemonId" to (id+1)
+        ))
 
     }
 
