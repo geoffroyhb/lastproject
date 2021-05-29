@@ -55,7 +55,7 @@ class PokemonListFragment : Fragment() {
 
         val retrofit = Retrofit.Builder()
 
-                .baseUrl("https://pokeapi.co/api/v2/pokemon/")
+                .baseUrl("https://pokeapi.co/api/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
