@@ -6,13 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.lastproject.R
+import com.example.lastproject.presentation.Singleton
+import com.example.lastproject.presentation.api.PokemonDetailResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class PokemonDetailFragment : Fragment() {
+    private lateinit var  textViewName: TextView
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -25,18 +32,30 @@ class PokemonDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.button_second).setOnClickListener{
-
-
-
-
-            findNavController().navigate(R.id.navigateToPokemonListFragment)}
-
+        textViewName = view.findViewById(R.id.pokemon_details_name)
+        CallApi()
             }
 
+    private fun CallApi() {
+       Singleton.pokeApi.getPokemonDetail("1").enqueue(object : Callback<PokemonDetailResponse>{
+           override fun onFailure(call: Call<PokemonDetailResponse>, t: Throwable) {
+
+           }
+
+           override fun onResponse(
+               call: Call<PokemonDetailResponse>,
+               response: Response<PokemonDetailResponse>
+           ) {
+               if (response.isSuccessful && response.body() != null) {
+                   textViewName.text = response.body()!!.name
+               }
+           }
+
+       })
+    }
 
 
-        }
+}
 
 
 
