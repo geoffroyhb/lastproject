@@ -28,7 +28,6 @@ class PokemonListFragment : Fragment() {
 
 
 
-    private val layoutManager = LinearLayoutManager(context)
 
 
     override fun onCreateView(
@@ -46,7 +45,7 @@ class PokemonListFragment : Fragment() {
 
 
         recyclerView.apply {
-            layoutManager = this@PokemonListFragment.layoutManager
+            layoutManager = LinearLayoutManager(context)
 
             adapter = this@PokemonListFragment.adapter
         }
@@ -56,7 +55,7 @@ class PokemonListFragment : Fragment() {
 
         val retrofit = Retrofit.Builder()
 
-                .baseUrl("https://pokeapi.co/api/v2/%22")
+                .baseUrl("https://pokeapi.co/api/v2/pokemon/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
