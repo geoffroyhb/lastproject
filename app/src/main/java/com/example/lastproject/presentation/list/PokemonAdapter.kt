@@ -7,20 +7,25 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lastproject.R
 
-class PokemonAdapter(private val dataSet: Array<String>) :
+class PokemonAdapter(private var dataSet: List<String>) :
         RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
-    class ViewHolder(view:View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView
 
         init {
             // Define click listener for the ViewHolder's View.
-            textView = view.findViewById(R.id.textView)
+            textView = view.findViewById(R.id.pokemon_name)
         }
+    }
+
+    fun updateList(list: List<String>){
+        dataSet =list
+        notifyDataSetChanged()
     }
 
     // Create new views (invoked by the layout manager)

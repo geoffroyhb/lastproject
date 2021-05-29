@@ -1,7 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="50dp"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
 
@@ -9,8 +10,11 @@
         android:id="@+id/pokemon_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        tools:text="Raichu"
+        android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStarOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center_horizontal" />
 </FrameLayout>
