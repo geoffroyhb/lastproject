@@ -15,6 +15,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 
@@ -55,7 +56,8 @@ class PokemonListFragment : Fragment() {
 
         val retrofit = Retrofit.Builder()
 
-                .baseUrl("https://pokeapi.co/api/v2/pokemon")
+                .baseUrl("https://pokeapi.co/api/v2/%22")
+                .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
         val pokeApi: PokeApi= retrofit.create(PokeApi::class.java)
