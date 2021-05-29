@@ -13,7 +13,6 @@
         tools:text="Raichu"
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStarOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:gravity="center_horizontal" />
