@@ -59,28 +59,36 @@ class PokemonListFragment : Fragment() {
 
 
 
-            Singleton.pokeApi.getPokemonList().enqueue(object : Callback<PokemonListResponse> {
-                override fun onFailure(call: Call<PokemonListResponse>,
-                                       t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-
-                override fun onResponse(call: Call<PokemonListResponse>, response: Response<PokemonListResponse>) {
-                   if (response.isSuccessful && response.body() != null) {
-                       val pokemonResponse: PokemonListResponse? = response.body()!!
-
-                           adapter.updateList(pokemonResponse!!.results)
-                       }
-                       }
-
-
-
-
-            })
+        callApi()
 
 
 
     }
+
+    private fun callApi() {
+        pokeApi.getPokemonList().enqueue(object : Callback<PokemonListResponse> {
+            override fun onFailure(
+                call: Call<PokemonListResponse>,
+                t: Throwable
+            ) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onResponse(
+                call: Call<PokemonListResponse>,
+                response: Response<PokemonListResponse>
+            ) {
+                if (response.isSuccessful && response.body() != null) {
+                    val pokemonResponse: PokemonListResponse? = response.body()!!
+
+                    adapter.updateList(pokemonResponse!!.results)
+                }
+            }
+
+
+        })
+    }
+
     private fun onClickPokemon(id: Int) {
         findNavController().navigate(R.id.navigateToPokemonDetailsFragment, bundleOf(
             "PokemonId" to (id+1)
