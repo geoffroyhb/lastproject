@@ -1,7 +1,7 @@
 # lastproject
 
 
-Bonjour voici, mon pokedex avec mes pokemons que j'ai attrapré durant mon passage à Bourg Palette.
+Bonjour, voici mon pokedex avec mes pokemons que j'ai attrapré durant mon passage à Bourg Palette.
 Cette application utilise L'Api rest PokeApi.
 J'ai fait de nombreux tests unitaires et j'ai  mis en place  l'utilisation de branches develop afin de pouvoir coder sans impacter la branche principal.
 utilisation du singleton et de design patterns et de design
