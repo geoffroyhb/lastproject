@@ -33,4 +33,7 @@ usage de singleton
 il est utilisé pour appelé l'api et stoker l'url de l'api 
 
 
+![premiere page](https://user-images.githubusercontent.com/79906373/120117040-7c013180-c18b-11eb-88e0-2860fe485521.PNG)
+
+![pokedex](https://user-images.githubusercontent.com/79906373/120117037-773c7d80-c18b-11eb-8372-fe624610525a.PNG)
 
