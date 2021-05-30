@@ -36,8 +36,8 @@ class PokemonListFragment : Fragment() {
 
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_pokemon_list, container, false)
@@ -56,31 +56,18 @@ class PokemonListFragment : Fragment() {
         }
 
 
-
-
-
-
-        val list =getListFromCache()
-        if(list.isEmpty()){
-            callApi()
-            }else{
-            showList(list)
-        }
+//        val list =getListFromCache()
+//        if(list.isEmpty()){
+        callApi()
+//            }else{
+//            showList(list)
+//        }
 
 
 
 
     }
 
-    private fun getListFromCache(): List<Pokemon> {
-
-        TODO("Not yet implemented")
-    }
-
-
-    private fun saveListIntoCache() {
-        TODO("Not yet implemented")
-    }
     private fun callApi() {
         pokeApi.getPokemonList().enqueue(object : Callback<PokemonListResponse> {
             override fun onFailure(
@@ -96,9 +83,9 @@ class PokemonListFragment : Fragment() {
             ) {
                 if (response.isSuccessful && response.body() != null) {
                     val pokemonResponse: PokemonListResponse? = response.body()!!
-                    saveListIntoCache()
 
-                   showList(pokemonResponse!!.results)
+
+                    showList(pokemonResponse!!.results)
                 }
             }
 
@@ -120,3 +107,4 @@ class PokemonListFragment : Fragment() {
     }
 
 }
+
