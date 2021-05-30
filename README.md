@@ -26,6 +26,10 @@ j'ai utilisé mes thémes de couleur personnal pour cette application:
 Gitflows:
 
 developpement de l'application avec la mise en place de Gitlfow .J'ai utilisé 2 branches master et develop.
+git checkout master
+git merge --no-ff develop
+git push origin master 
+git checkout develop
 
 
 Singletons:
