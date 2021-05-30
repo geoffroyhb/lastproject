@@ -3,8 +3,11 @@ package com.example.lastproject.presentation.list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.Glide.*
 import com.example.lastproject.R
 
 class PokemonAdapter(private var dataSet: List<Pokemon>, var listener: ((Int) -> Unit)? = null) :
@@ -17,10 +20,12 @@ class PokemonAdapter(private var dataSet: List<Pokemon>, var listener: ((Int) ->
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView
+        val imageView:ImageView
 
         init {
             // Define click listener for the ViewHolder's View.
              textView = view.findViewById(R.id.pokemon_name)
+            imageView =view.findViewById(R.id.pokemon_img)
 
         }
     }
@@ -49,6 +54,14 @@ class PokemonAdapter(private var dataSet: List<Pokemon>, var listener: ((Int) ->
 
             listener?.invoke(position)
         }
+
+        Glide
+            .with(viewHolder.itemView.context)
+            .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${position+1}.png")
+            .centerCrop()
+            .into(viewHolder.imageView);
+
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)

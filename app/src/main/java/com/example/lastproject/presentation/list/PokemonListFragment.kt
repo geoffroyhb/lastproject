@@ -1,5 +1,7 @@
 package com.example.lastproject.presentation.list
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,16 +12,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lastproject.R
-import com.example.lastproject.presentation.Singleton
 import com.example.lastproject.presentation.Singleton.Companion.pokeApi
-import com.example.lastproject.presentation.api.PokeApi
 import com.example.lastproject.presentation.api.PokemonListResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-
 
 
 /**
@@ -28,6 +25,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 class PokemonListFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private val adapter = PokemonAdapter(listOf(), ::onClickPokemon )
+
+    private val sharedPref:SharedPreferences?= activity?.getSharedPreferences(
+        "app", Context.MODE_PRIVATE)
+
+
 
 
 
@@ -58,13 +60,27 @@ class PokemonListFragment : Fragment() {
 
 
 
+        val list =getListFromCache()
+        if(list.isEmpty()){
+            callApi()
+            }else{
+            showList(list)
+        }
 
-        callApi()
 
 
 
     }
 
+    private fun getListFromCache(): List<Pokemon> {
+
+        TODO("Not yet implemented")
+    }
+
+
+    private fun saveListIntoCache() {
+        TODO("Not yet implemented")
+    }
     private fun callApi() {
         pokeApi.getPokemonList().enqueue(object : Callback<PokemonListResponse> {
             override fun onFailure(
@@ -80,13 +96,20 @@ class PokemonListFragment : Fragment() {
             ) {
                 if (response.isSuccessful && response.body() != null) {
                     val pokemonResponse: PokemonListResponse? = response.body()!!
+                    saveListIntoCache()
 
-                    adapter.updateList(pokemonResponse!!.results)
+                   showList(pokemonResponse!!.results)
                 }
             }
 
 
         })
+    }
+
+
+    private fun showList(pokeList: List<Pokemon>) {
+        adapter.updateList(pokeList)
+
     }
 
     private fun onClickPokemon(id: Int) {
