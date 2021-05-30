@@ -34,7 +34,7 @@ git checkout develop
 
 Singletons:
 usage de singleton
-il est utilisé pour appelé l'api et stoker l'url de l'api 
+il est utilisé pour appeler l'api et stoker l'url de l'api 
 
 
 ![premiere page](https://user-images.githubusercontent.com/79906373/120117040-7c013180-c18b-11eb-88e0-2860fe485521.PNG)
