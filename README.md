@@ -3,9 +3,9 @@
 
 Bonjour voici, mon pokedex avec mes pokemons que j'ai attrapré durant mon passage à Bourg Palette.
 Cette application utilise L'Api rest PokeApi.
-J'ai fait de nombreux tests unitaires et j'ai  mis en place  l'utilisation de branche develop afin de pouvoir coder sans impacter la branche principal.
+J'ai fait de nombreux tests unitaires et j'ai  mis en place  l'utilisation de branches develop afin de pouvoir coder sans impacter la branche principal.
 utilisation du singleton et de design patterns et de design
-Sur la 2 ème page du pokédex vous pouvez voir la photo du pokémon qui est récuperer par l'api et ses caractéristiques et ses évolutions. 
+Sur la 2 ème page du pokédex vous pouvez voir la photo du pokémon qui est récuperé par l'api et ses caractéristiques et ses évolutions. 
 
 
 APi:
